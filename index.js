@@ -146,11 +146,12 @@ class Lambdasian {
 
 class Instructor extends Lambdasian {
   constructor ({name, age, location, specialty, favLanguage, catchPhrase}) {
-  super({name, age, location});
+    super({name, age, location});
     this.specialty = specialty;
     this.favLanguage = favLanguage;
     this.catchPhrase = catchPhrase;
   }
+
   demo(subject) {
     return `Today we are learning about ${subject}`
   }
@@ -178,10 +179,10 @@ class Instructor extends Lambdasian {
 
 class Student extends Lambdasian {
   constructor({name, age, location, previousBackground, className, favSubjects}) {
-  super({name, age, location});
-  this.previousBackground = previousBackground;
-  this.className = className;
-  this.favSubjects = favSubjects;
+    super({name, age, location});
+    this.previousBackground = previousBackground;
+    this.className = className;
+    this.favSubjects = favSubjects;
   }
 
   listSubjects() {
@@ -212,9 +213,24 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 
-class ProjectManager {
-   
+class ProjectManager extends Instructor {
+  constructor({name, age, location, specialty, favLanguage, catchPhrase, gradClassName, favInstructor}) {
+    super({name, age, location, specialty, favLanguage, catchPhrase});
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
+  }
+
+  standUp(slackChannel) {
+    this.channel = slackChannel
+    return `${this.name} announces to ${this.channel}, @channel standy times!`
+  }
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
+
 }
+
 
 /*
   STRETCH PROBLEM (no tests!)
